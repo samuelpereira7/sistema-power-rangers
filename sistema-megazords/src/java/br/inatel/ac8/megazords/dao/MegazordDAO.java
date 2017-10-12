@@ -29,13 +29,15 @@ public class MegazordDAO {
             PreparedStatement ps;
             if(megazord.getId() == null)
             {
-                ps = conexao.prepareStatement("INSERT INTO `megazord`(`nomeMegazord`)VALUES(?);");
+                ps = conexao.prepareStatement("INSERT INTO `Megazord`(`nomeMegazord`, `poderMegazord`)VALUES(?, ?);");
             } else {
-                ps = conexao.prepareStatement("UPDATE `megazord` SET `nomeMegazord`=? WHERE `idMegazord`=?;");
-                ps.setInt(2, megazord.getId());
+                ps = conexao.prepareStatement("UPDATE `Megazord` SET `nomeMegazord`=?, `poderMegazord`=? WHERE `idMegazord`=?;");
+                ps.setInt(3, megazord.getId());
             }
             
             ps.setString(1, megazord.getNome());
+            // TODO: set "poderMegazord" properly
+            ps.setInt(2, megazord.getPoder());
             ps.execute();
             FabricaConexao.fecharConexao();
         } catch (SQLException ex) {
@@ -47,7 +49,7 @@ public class MegazordDAO {
     {
         try {
             Connection conexao = FabricaConexao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("SELECT * FROM megazord;");
+            PreparedStatement ps = conexao.prepareStatement("SELECT * FROM Megazord;");
             ResultSet resultSet = ps.executeQuery();
             
             List<Megazord> megazords = new ArrayList<>();
@@ -56,6 +58,7 @@ public class MegazordDAO {
                 Megazord megazord = new Megazord();
                 megazord.setId(resultSet.getInt("idMegazord"));
                 megazord.setNome(resultSet.getString("nomeMegazord"));
+                megazord.setPoder(resultSet.getInt("poderMegazord"));
                 
                 megazords.add(megazord);
             }
@@ -75,7 +78,7 @@ public class MegazordDAO {
             PreparedStatement ps;
             if(megazord.getId() != null)
             {
-                ps = conexao.prepareStatement("DELETE FROM `megazord` WHERE `idMegazord`=?;");
+                ps = conexao.prepareStatement("DELETE FROM `Megazord` WHERE `idMegazord`=?;");
                 ps.setInt(1, megazord.getId());
                 ps.execute();
             } else {                

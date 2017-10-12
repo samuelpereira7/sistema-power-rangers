@@ -7,6 +7,7 @@ import java.util.Objects;
 public class Megazord {
     private Integer id;
     private String nome;
+    private Integer poder;
 
     public Integer getId() {
         return id;
@@ -22,6 +23,14 @@ public class Megazord {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Integer getPoder() {
+        return poder;
+    }
+
+    public void setPoder(Integer poder) {
+        this.poder = poder;
     }
 
     @Override

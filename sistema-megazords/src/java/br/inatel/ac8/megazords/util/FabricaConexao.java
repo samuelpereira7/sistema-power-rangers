@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 public class FabricaConexao {
     
     private static Connection conexao;
-    private static final String URL_CONEXAO = "jdbc:mysql://Localhost:3306/sistema-megazords";
+    private static final String URL_CONEXAO = "jdbc:mysql://Localhost:3306/sistema-powerrangers";
     private static final String USUARIO = "root";
     private static final String SENHA = "root";
 
