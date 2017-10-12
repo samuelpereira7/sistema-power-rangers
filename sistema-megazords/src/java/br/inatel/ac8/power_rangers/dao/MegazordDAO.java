@@ -87,9 +87,9 @@ public class MegazordDAO {
             } else {                
                 // sei la
             }
-            FabricaConexao.fecharConexao();
             
             FabricaConexao.fecharConexao();
+            
         } catch (SQLException ex) {
             //Logger.getLogger(MegazordDAO.class.getName()).log(Level.SEVERE, null, ex);
             throw new ErroSistema("Erro ao remover Megazord!",ex);

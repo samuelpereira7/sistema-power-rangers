@@ -6,8 +6,6 @@ import br.inatel.ac8.power_rangers.entidade.Megazord;
 import br.inatel.ac8.power_rangers.util.exception.ErroSistema;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
