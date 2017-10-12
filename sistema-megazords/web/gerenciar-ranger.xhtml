@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:p="http://primefaces.org/ui"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             template="template.xhtml"
+             xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:form  id="form1">
+        <p:toolbar>
+            <p:toolbarGroup align="left">
+                <p:commandButton value="Adicionar" action="#{megazordBean.adicionar()}" update=":form1"></p:commandButton>
+                <!-- parameter sugestion for the command above: oncomplete="#{megazordBean.listar()}" -->
+                <p:commandButton value="Listar" action="#{megazordBean.listar()}" update=":form1"></p:commandButton>
+            </p:toolbarGroup>
+        </p:toolbar>
+        <p:fieldset legend="Objetos">
+            <p:panelGrid columns="2">
+                <h:outputLabel value="Nome"></h:outputLabel>
+                <p:inputText value="#{megazordBean.megazord.nome}"></p:inputText>
+                <h:outputLabel value="Poder"></h:outputLabel>
+                <p:inputText value="#{megazordBean.megazord.poder}"></p:inputText>
+            </p:panelGrid>
+            <p:dataTable value="#{megazordBean.megazords}" var="megazord">
+                <p:column>
+                    <p:commandButton value="Editar" action="#{megazordBean.editar(megazord)}" update=":form1"></p:commandButton>
+                </p:column>
+                <p:column headerText="Nome" sortBy="#{megazord.nome}">
+                    <h:outputText value="#{megazord.nome}"></h:outputText>
+                </p:column>
+                <p:column headerText="Poder" sortBy="#{megazord.poder}">
+                    <h:outputText value="#{megazord.poder}"></h:outputText>
+                </p:column>
+                 <p:column>
+                     <p:commandButton value="Remover" action="#{megazordBean.remover(megazord)}" update=":form1"></p:commandButton>
+                </p:column>
+            </p:dataTable>
+        </p:fieldset>
+    </h:form> 
+</ui:decorate>
+
