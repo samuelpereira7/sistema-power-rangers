@@ -3,7 +3,6 @@ package br.inatel.ac8.power_rangers.entidade;
 
 import java.util.Objects;
 
-
 public class Megazord {
     private Integer id;
     private String nome;

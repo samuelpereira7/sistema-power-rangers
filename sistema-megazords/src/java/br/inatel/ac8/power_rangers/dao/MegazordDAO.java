@@ -7,14 +7,13 @@ package br.inatel.ac8.power_rangers.dao;
 
 import br.inatel.ac8.power_rangers.entidade.Megazord;
 import br.inatel.ac8.power_rangers.util.FabricaConexao;
+import br.inatel.ac8.power_rangers.util.exception.ErroSistema;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -22,11 +21,12 @@ import java.util.logging.Logger;
  */
 public class MegazordDAO {
     
-    public void salvar(Megazord megazord)
+    public void salvar(Megazord megazord) throws ErroSistema
     {
         try {       
             Connection conexao = FabricaConexao.getConexao();
             PreparedStatement ps;
+            // id != null -> objeto vindo do banco (atualizacao)
             if(megazord.getId() == null)
             {
                 ps = conexao.prepareStatement("INSERT INTO `Megazord`(`nomeMegazord`, `poderMegazord`)VALUES(?, ?);");
@@ -41,11 +41,12 @@ public class MegazordDAO {
             ps.execute();
             FabricaConexao.fecharConexao();
         } catch (SQLException ex) {
-            Logger.getLogger(MegazordDAO.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(MegazordDAO.class.getName()).log(Level.SEVERE, null, ex);
+            throw new ErroSistema("Erro ao salvar/atualizar Megazord!",ex);
         }
     }
     
-    public List buscar()
+    public List buscar() throws ErroSistema
     {
         try {
             Connection conexao = FabricaConexao.getConexao();
@@ -62,16 +63,18 @@ public class MegazordDAO {
                 
                 megazords.add(megazord);
             }
+            FabricaConexao.fecharConexao();
             
             return megazords;
             
         } catch (SQLException ex) {
-            Logger.getLogger(MegazordDAO.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
+            //Logger.getLogger(MegazordDAO.class.getName()).log(Level.SEVERE, null, ex);
+            throw new ErroSistema("Erro ao buscar Megazord!",ex);
+            //return null;
         }
     }
     
-    public void remover(Megazord megazord)
+    public void remover(Megazord megazord) throws ErroSistema
     {
         try {       
             Connection conexao = FabricaConexao.getConexao();
@@ -84,10 +87,12 @@ public class MegazordDAO {
             } else {                
                 // sei la
             }
+            FabricaConexao.fecharConexao();
             
             FabricaConexao.fecharConexao();
         } catch (SQLException ex) {
-            Logger.getLogger(MegazordDAO.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(MegazordDAO.class.getName()).log(Level.SEVERE, null, ex);
+            throw new ErroSistema("Erro ao remover Megazord!",ex);
         }
     }
             
