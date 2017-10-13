@@ -10,30 +10,38 @@
     <h:form  id="form1">
         <p:toolbar>
             <p:toolbarGroup align="left">
-                <p:commandButton value="Adicionar" action="#{megazordBean.adicionar()}" update=":form1"></p:commandButton>
-                <!-- parameter sugestion for the command above: oncomplete="#{megazordBean.listar()}" -->
-                <p:commandButton value="Listar" action="#{megazordBean.listar()}" update=":form1"></p:commandButton>
+                <p:commandButton value="Adicionar" action="#{rangerBean.adicionar()}" update=":form1"></p:commandButton>
+                <!-- parameter sugestion for the command above: oncomplete="#{rangerBean.listar()}" -->
+                <p:commandButton value="Listar" action="#{rangerBean.listar()}" update=":form1"></p:commandButton>
             </p:toolbarGroup>
         </p:toolbar>
+        
+        <p:messages autoUpdate="true" showDetail="true"></p:messages>
+        
         <p:fieldset legend="Objetos">
             <p:panelGrid columns="2">
-                <h:outputLabel value="Nome"></h:outputLabel>
-                <p:inputText value="#{megazordBean.megazord.nome}"></p:inputText>
-                <h:outputLabel value="Poder"></h:outputLabel>
-                <p:inputText value="#{megazordBean.megazord.poder}"></p:inputText>
+                <h:outputLabel value="Cor"></h:outputLabel>
+                <p:inputText value="#{rangerBean.ranger.cor}"></p:inputText>
+                <h:outputLabel value="Habilidade"></h:outputLabel>
+                <p:inputText value="#{rangerBean.ranger.habilidade}"></p:inputText>
+                <h:outputLabel value="Arma"></h:outputLabel>
+                <p:inputText value="#{rangerBean.ranger.arma}"></p:inputText>
             </p:panelGrid>
-            <p:dataTable value="#{megazordBean.megazords}" var="megazord">
+            <p:dataTable value="#{rangerBean.rangers}" var="ranger">
                 <p:column>
-                    <p:commandButton value="Editar" action="#{megazordBean.editar(megazord)}" update=":form1"></p:commandButton>
+                    <p:commandButton value="Editar" action="#{rangerBean.editar(ranger)}" update=":form1"></p:commandButton>
                 </p:column>
-                <p:column headerText="Nome" sortBy="#{megazord.nome}">
-                    <h:outputText value="#{megazord.nome}"></h:outputText>
+                <p:column headerText="Nome" sortBy="#{ranger.cor}">
+                    <h:outputText value="#{ranger.cor}"></h:outputText>
                 </p:column>
-                <p:column headerText="Poder" sortBy="#{megazord.poder}">
-                    <h:outputText value="#{megazord.poder}"></h:outputText>
+                <p:column headerText="Habilidade" sortBy="#{ranger.habilidade}">
+                    <h:outputText value="#{ranger.habilidade}"></h:outputText>
+                </p:column>
+                <p:column headerText="Arma" sortBy="#{ranger.arma}">
+                    <h:outputText value="#{ranger.arma}"></h:outputText>
                 </p:column>
                  <p:column>
-                     <p:commandButton value="Remover" action="#{megazordBean.remover(megazord)}" update=":form1"></p:commandButton>
+                     <p:commandButton value="Remover" action="#{rangerBean.remover(ranger)}" update=":form1"></p:commandButton>
                 </p:column>
             </p:dataTable>
         </p:fieldset>
