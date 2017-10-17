@@ -7,18 +7,21 @@
       
     <h:head>
         <title>Sistema Power Rangers</title>
+        <link rel="stylesheet" type="text/css" href="style.css"></link>
     </h:head>
     <h:body>
-        <h1>Sistema Power Rangers</h1>
+        <a target="_self" href="index.jsf">
+            <img id="logo" src="logo-power-rangers.png" alt="Power Rangers">
+            </img>
+        </a>
         <h:form>
             <p:menubar>
-                <p:menuitem value="Home" url="index.jsf"></p:menuitem>
-                <p:menuitem value="Rangers" url="gerenciar-ranger.jsf"></p:menuitem>
-                <p:menuitem value="Zords" url="gerenciar-zord.jsf"></p:menuitem>
-                <p:menuitem value="Megazords" url="gerenciar-megazord.jsf"></p:menuitem>
+                <p:menuitem value="!Rangers" url="gerenciar-ranger.jsf"></p:menuitem>
+                <p:menuitem value="!Zords" url="gerenciar-zord.jsf"></p:menuitem>
+                <p:menuitem value="!Megazords" url="gerenciar-megazord.jsf"></p:menuitem>
             </p:menubar>    
         </h:form>
-        <hr/>
+        
         <ui:insert></ui:insert>
     </h:body>
 </html>

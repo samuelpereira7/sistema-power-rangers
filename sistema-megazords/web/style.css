@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'FontRangers';
+    src: url('PowerRangers.ttf');
+}
+
+body {
+    background: url(bgimage.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;	
+}
+
+.ui-menubar {
+    position: relative;
+    left: 38%;
+    width: 23%;
+    background: silver;
+    font-size: 200%;
+}
+
+.ui-menuitem-text {
+    text-align: center;
+    font-family: FontRangers;
+    width:100%;
+}
+
+#form1 {
+    position: relative;
+    padding: 10px;
+    left: 0;
+    top: 35%;
+    height: auto;
+    float: left;
+}
+
+#img1 {
+    display: block;
+    margin: 0 auto;
+    padding: 75px;
+    width: 500px;
+    max-width: 100%;
+    height: auto;
+}
+
+#logo {
+    display: block;
+    margin: 0 auto;
+}
+
+.ui-fieldset {
+    position: relative;
+    background: transparent;
+    border: none;
+    font-family: FontRangers;
+    font-size: 170%
+}
+
+.ui-panelgrid {
+    font-size: 70% !important;
+}
