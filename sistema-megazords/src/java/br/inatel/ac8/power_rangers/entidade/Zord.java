@@ -5,6 +5,8 @@
  */
 package br.inatel.ac8.power_rangers.entidade;
 
+import java.util.Objects;
+
 /**
  *
  * @author samuel
@@ -36,5 +38,30 @@ public class Zord {
 
     public void setPoder(Integer poder) {
         this.poder = poder;
+    }
+    
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 39 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Zord other = (Zord) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
     }
 }
