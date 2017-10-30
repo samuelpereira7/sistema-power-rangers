@@ -10,30 +10,30 @@
     <h:form  id="form1">
         <p:toolbar>
             <p:toolbarGroup align="left">
-                <p:commandButton value="Adicionar" action="#{megazordBean.adicionar()}" update=":form1"></p:commandButton>
-                <!-- parameter sugestion for the command above: oncomplete="#{megazordBean.listar()}" -->
-                <p:commandButton value="Listar" action="#{megazordBean.listar()}" update=":form1"></p:commandButton>
+                <p:commandButton value="Adicionar" action="#{zordBean.adicionar()}" update=":form1"></p:commandButton>
+                <!-- parameter sugestion for the command above: oncomplete="#{zordBean.listar()}" -->
+                <p:commandButton value="Listar" action="#{zordBean.listar()}" update=":form1"></p:commandButton>
             </p:toolbarGroup>
         </p:toolbar>
         <p:fieldset legend="Objetos">
             <p:panelGrid columns="2">
                 <h:outputLabel value="Nome"></h:outputLabel>
-                <p:inputText value="#{megazordBean.megazord.nome}"></p:inputText>
+                <p:inputText value="#{zordBean.zord.nome}"></p:inputText>
                 <h:outputLabel value="Poder"></h:outputLabel>
-                <p:inputText value="#{megazordBean.megazord.poder}"></p:inputText>
+                <p:inputText value="#{zordBean.zord.poder}"></p:inputText>
             </p:panelGrid>
-            <p:dataTable value="#{megazordBean.megazords}" var="megazord">
+            <p:dataTable value="#{zordBean.zords}" var="zord">
                 <p:column>
-                    <p:commandButton value="Editar" action="#{megazordBean.editar(megazord)}" update=":form1"></p:commandButton>
+                    <p:commandButton value="Editar" action="#{zordBean.editar(zord)}" update=":form1"></p:commandButton>
                 </p:column>
-                <p:column headerText="Nome" sortBy="#{megazord.nome}">
-                    <h:outputText value="#{megazord.nome}"></h:outputText>
+                <p:column headerText="Nome" sortBy="#{zord.nome}">
+                    <h:outputText value="#{zord.nome}"></h:outputText>
                 </p:column>
-                <p:column headerText="Poder" sortBy="#{megazord.poder}">
-                    <h:outputText value="#{megazord.poder}"></h:outputText>
+                <p:column headerText="Poder" sortBy="#{zord.poder}">
+                    <h:outputText value="#{zord.poder}"></h:outputText>
                 </p:column>
-                 <p:column>
-                     <p:commandButton value="Remover" action="#{megazordBean.remover(megazord)}" update=":form1"></p:commandButton>
+                <p:column>
+                     <p:commandButton value="Remover" action="#{zordBean.remover(zord)}" update=":form1"></p:commandButton>
                 </p:column>
             </p:dataTable>
         </p:fieldset>

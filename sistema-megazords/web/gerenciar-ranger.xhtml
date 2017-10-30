@@ -44,11 +44,10 @@
                 <p:column headerText="Arma" sortBy="#{ranger.arma}">
                     <h:outputText value="#{ranger.arma}"></h:outputText>
                 </p:column>
-                 <p:column>
+                <p:column>
                      <p:commandButton value="Remover" action="#{rangerBean.remover(ranger)}" update=":form1"></p:commandButton>
                 </p:column>
             </p:dataTable>
         </p:fieldset>
-    </h:form> 
+    </h:form>
 </ui:decorate>
-
