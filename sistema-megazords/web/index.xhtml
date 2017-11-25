@@ -6,11 +6,18 @@
              template="template.xhtml"
              xmlns:p="http://primefaces.org/ui">
     
-    <a target="_self">
-        <img id="img1" src="power_rangers.png" alt="Power Rangers">
-        </img>
-    </a>        
- 
+    <link rel="stylesheet" type="text/css" href="style.css"></link>
+    
+    <p:layout style="min-width:500px;min-height:400px; width: 100%; height: 100%; position: relative; padding: 10px;">
+        <p:layoutUnit resizable="true" position="center" style="background-color: transparent; border: none; padding-left: 400px; padding-right: 430px;">
+            <p:galleria value="#{imagesView.images}" var="image" panelWidth="500" panelHeight="313" showCaption="true" autoPlay="true" style="padding: 0px;">
+                <p:graphicImage height="100%" width="100%" value="#{image}" alt="Image Description for power_rangers" title="Power Rangers"/>
+            </p:galleria>
+        </p:layoutUnit>
+    </p:layout>
+    
+    
+             
 </ui:decorate>
     
 
